@@ -3,6 +3,7 @@
 DOCKER_WORKING_DIR=/workspace
 USR_HOME=${HOME:-/root}
 
+xhost + local:docker
 docker run --rm \
            -it \
            --network=host \
