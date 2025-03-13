@@ -1,0 +1,11 @@
+USERNAME=$(id -un)
+UUID=$(id -u)
+GGID=$(id -g)
+
+docker build \
+    --network host \
+    --build-arg USERNAME=${USERNAME} \
+    --build-arg UUID=${UUID} \
+    --build-arg GGID=${GGID} \
+    -t "nxp-dev-tools" \
+    .

@@ -1,0 +1,28 @@
+#! /usr/bin/bash
+
+DOCKER_WORKING_DIR=/workspace
+USR_HOME=${HOME:-/root}
+
+docker run --rm \
+           -it \
+           --network=host \
+           --privileged \
+           --name docker-NXP \
+           -h docker-${HOSTNAME} \
+           -e DISPLAY \
+           -v ${HOME}/.gitconfig:${USR_HOME}/.gitconfig \
+           -v ${HOME}/.gitignore:${USR_HOME}/.gitignore \
+           -v ${HOME}/.bash_aliases:${USR_HOME}/.bash_aliases \
+           -v ${HOME}/.ssh:${USR_HOME}/.ssh \
+           -v ${HOME}/.config:${USR_HOME}/.config \
+           -v ${HOME}/.emacs:${USR_HOME}/.emacs \
+           -v ${HOME}/.emacs.d:${USR_HOME}/.emacs.d \
+           -v ${HOME}/.vscode:${USR_HOME}/.vscode \
+           -v /dev/bus/usb:/dev/bus/usb \
+           -v /run/dbus/:/run/dbus/ \
+           -v ${PWD}:${DOCKER_WORKING_DIR} \
+           -w ${DOCKER_WORKING_DIR} \
+           nxp-dev-tools
+
+### /bin/bash -ic "${DOCKER_RUN_COMMAND}" -e  "exit \$?"
+
