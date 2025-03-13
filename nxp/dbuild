@@ -3,9 +3,10 @@ UUID=$(id -u)
 GGID=$(id -g)
 
 docker build \
+    --no-cache \
     --network host \
     --build-arg USERNAME=${USERNAME} \
     --build-arg UUID=${UUID} \
     --build-arg GGID=${GGID} \
-    -t "nxp-dev-tools" \
+    --tag  "nxp-dev-tools" \
     .
