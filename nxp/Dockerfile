@@ -35,6 +35,7 @@ RUN  apt-get -y update \
         git \
         gpg \
         gpiod \
+        iproute2 \
         libgpiod2 \
         libdrm2 \
         libgbm1 \

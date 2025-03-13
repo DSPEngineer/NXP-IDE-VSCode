@@ -19,7 +19,7 @@ docker run --rm \
            -v ${HOME}/.emacs:${USR_HOME}/.emacs \
            -v ${HOME}/.emacs.d:${USR_HOME}/.emacs.d \
            -v ${HOME}/.vscode:${USR_HOME}/.vscode \
-           -v $HOME/.Xauthority:/root/.Xauthority:rw \
+           -v $HOME/.Xauthority:${USR_HOME}/.Xauthority:rw \
            -v /dev/bus/usb:/dev/bus/usb \
            -v /run/dbus/:/run/dbus/ \
            -v ${PWD}:${DOCKER_WORKING_DIR} \
