@@ -4,6 +4,22 @@ DOCKER_WORKING_DIR=/workspace
 USR_HOME=${HOME:-/root}
 
 xhost + local:docker
+
+#docker run --rm \
+#           -it \
+#           --network=host \
+#           --privileged \
+#           --name docker-NXP \
+#           -h docker-${HOSTNAME} \
+#           -e DISPLAY \
+#           -v ${HOME}:${USR_HOME} \
+#           -v /dev/bus/usb:/dev/bus/usb \
+#           -v /run/dbus/:/run/dbus/ \
+#           -v ${PWD}:${DOCKER_WORKING_DIR} \
+#           -w ${DOCKER_WORKING_DIR} \
+#           nxp-dev-tools
+
+
 docker run --rm \
            -it \
            --network=host \
@@ -19,7 +35,7 @@ docker run --rm \
            -v ${HOME}/.emacs:${USR_HOME}/.emacs \
            -v ${HOME}/.emacs.d:${USR_HOME}/.emacs.d \
            -v ${HOME}/.vscode:${USR_HOME}/.vscode \
-           -v $HOME/.Xauthority:${USR_HOME}/.Xauthority:rw \
+           -v ${HOME}/.Xauthority:${USR_HOME}/.Xauthority:rw \
            -v /dev/bus/usb:/dev/bus/usb \
            -v /run/dbus/:/run/dbus/ \
            -v ${PWD}:${DOCKER_WORKING_DIR} \

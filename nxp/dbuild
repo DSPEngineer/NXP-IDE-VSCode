@@ -2,8 +2,9 @@ USERNAME=$(id -un)
 UUID=$(id -u)
 GGID=$(id -g)
 
+#--no-cache \
+
 docker build \
-    --no-cache \
     --network host \
     --build-arg USERNAME=${USERNAME} \
     --build-arg UUID=${UUID} \
